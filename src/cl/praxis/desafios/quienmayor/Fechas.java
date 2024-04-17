@@ -20,10 +20,10 @@ public class Fechas {
                 fecha1Day = Integer.parseInt(fecha1.substring(0, 2));
                 fecha1Month = Integer.parseInt(fecha1.substring(3, 5));
                 fecha1Year = Integer.parseInt(fecha1.substring(6, 10));
-                if (fecha1Day > 0 && fecha1Day <= 31 && fecha1Month > 0 && fecha1Month <= 12 && fecha1Year > 0) {
+                if (fecha1Day > 0 && fecha1Day <= 31 && fecha1Month > 0 && fecha1Month <= 12 && fecha1Year > 1900 && fecha1Year <= 2024) {
                     status = true;
                 } else {
-                    System.out.println("La fecha tiene un formato incorrecto (dias hasta 31, meses hasta 12 y años hasta 9999)");
+                    System.out.println("La fecha tiene un formato incorrecto (dias hasta 31, meses hasta 12 y años hasta 2024)");
                     status = false;
                 }
             } else {
@@ -38,10 +38,10 @@ public class Fechas {
                 fecha2Day = Integer.parseInt(fecha2.substring(0, 2));
                 fecha2Month = Integer.parseInt(fecha2.substring(3, 5));
                 fecha2Year = Integer.parseInt(fecha2.substring(6, 10));
-                if (fecha2Day > 0 && fecha2Day <= 31 && fecha2Month > 0 && fecha2Month <= 12 && fecha2Year > 0) {
+                if (fecha2Day > 0 && fecha2Day <= 31 && fecha2Month > 0 && fecha2Month <= 12 && fecha2Year > 1900 && fecha2Year <= 2024) {
                     status = true;
                 } else {
-                    System.out.println("La fecha tiene un formato incorrecto (dias hasta 31, meses hasta 12 y años hasta 9999)");
+                    System.out.println("La fecha tiene un formato incorrecto (dias hasta 31, meses hasta 12 y años hasta 2024)");
                     status = false;
                 }
             } else {
@@ -87,11 +87,7 @@ public class Fechas {
             fechaDayStr = dateStr.substring(0, 2);
             fechaMonthStr = dateStr.substring(3, 5);
             fechaYearStr = dateStr.substring(6, 10);
-            if (isNumeric(fechaDayStr) && isNumeric(fechaMonthStr) && isNumeric(fechaYearStr)) {
-                return true;
-            } else {
-                return false;
-            }
+            return isNumeric(fechaDayStr) && isNumeric(fechaMonthStr) && isNumeric(fechaYearStr);
         } else {
             System.out.println("La fecha tiene un formato incorrecto, debe ser DD/MM/AAAA");
             return false;
