@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Fechas {
 
-    private static int counter = 0;
     public static void main(String[] args) {
         int[] result1, result2;
 
@@ -12,7 +11,9 @@ public class Fechas {
         System.out.println("¿Quién es mayor?");
         System.out.println("----------------");
 
+        System.out.println("Ingresa la fecha numero 1 como DD/MM/AAAA:");
         result1 = evaluateDate();
+        System.out.println("Ingresa la fecha numero 2 como DD/MM/AAAA:");
         result2 = evaluateDate();
 
         if (result1[3] > result2[3]) {
@@ -65,7 +66,6 @@ public class Fechas {
         Scanner sc = new Scanner(System.in);
 
         do {
-            System.out.println("Ingresa la fecha numero " + (counter+1) + " como DD/MM/AAAA:");
             dateStr = sc.nextLine();
             if (evaluateString(dateStr)) {
                 result[1] = Integer.parseInt(dateStr.substring(0, 2));
@@ -81,8 +81,8 @@ public class Fechas {
                 result[0] = 0;
             }
         } while (result[0] == 0);
-
-        counter++;
         return result;
     }
 }
+
+
