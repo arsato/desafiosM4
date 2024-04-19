@@ -11,9 +11,9 @@ public class Fechas {
         System.out.println("¿Quién es mayor?");
         System.out.println("----------------");
 
-        System.out.println("Ingresa la fecha numero 1 como DD/MM/AAAA:");
+        System.out.println("Ingresa la fecha número 1 como DD/MM/AAAA:");
         result1 = evaluateDate();
-        System.out.println("Ingresa la fecha numero 2 como DD/MM/AAAA:");
+        System.out.println("Ingresa la fecha número 2 como DD/MM/AAAA:");
         result2 = evaluateDate();
 
         if (result1[3] > result2[3]) {
