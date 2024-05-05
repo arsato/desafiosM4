@@ -29,49 +29,40 @@ public class EscrituraLectura {
 
     private static void crearArchivo(String directorio, String fichero) {
         String fullPath = PATH.concat(directorio).concat("/").concat(fichero).concat(".txt");
-        boolean dirstate = true, state;
+        boolean state = true;
 
         File path = new File(fullPath);
 
-        if(!path.getParentFile().exists()) {
-            System.out.println("Directorio no existente");
+        if (!path.getParentFile().exists()) {
             state = path.getParentFile().mkdir();
-            if(state){
-                System.out.println("Directorio creado");
-            }else{
-                System.out.println("Error al crear el directorio");
-            }
-            dirstate = state;
-        }else
-            System.out.println("Directorio existente");
+            System.out.println(state ? "Directorio creado correctamente" : "Error al crear el directorio");
+        } else
+            System.out.println("Directorio ya se encuentra creado");
 
-        if (dirstate && !path.exists()) {
+        if (state && !path.exists()) {
             try {
                 state = path.createNewFile();
-                if(state){
-                    System.out.println("Fichero creado");
+                System.out.println(state ? "Fichero creado correctamente" : "Error al crear el fichero");
+                if (state)
                     escribirFichero(path);
-                }else
-                    System.out.println("Error al crear el fichero");
             } catch (IOException e) {
                 System.out.println("Ocurrió un error de I/O");
             }
-        }else{
+        } else if (path.exists())
             System.out.println("Fichero existente");
-        }
     }
 
     private static void escribirFichero(File file) {
         ArrayList<String> lista = new ArrayList<>();
-        Collections.addAll(lista,"Perro", "Gato", "Juan", "Daniel", "Juan", "Gato", "Perro", "Camila", "Daniel", "Camila");
+        Collections.addAll(lista, "Perro", "Gato", "Juan", "Daniel", "Juan", "Gato", "Perro", "Camila", "Daniel", "Camila");
         try {
-            FileWriter fileW = new FileWriter(file);
-            BufferedWriter bufferedW = new BufferedWriter(fileW);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
             for (String i : lista) {
-                bufferedW.write(i);
-                bufferedW.newLine();
+                bw.write(i);
+                bw.newLine();
             }
-            bufferedW.close();
+            bw.close();
             System.out.println("Datos registrados correctamente");
         } catch (IOException e) {
             System.out.println("Ocurrió un error de I/O");
@@ -89,7 +80,7 @@ public class EscrituraLectura {
             } catch (IOException e) {
                 System.out.println("Ocurrió un error de I/O");
             }
-        }else
+        } else
             System.out.println("El fichero ingresado no existe");
     }
 }

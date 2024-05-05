@@ -24,7 +24,6 @@ public class SmartWatch {
                 cleanArray.add(aux);
             }
         }
-
         promedio = cleanArray.stream().reduce(0, Integer::sum) / cleanArray.size();
         System.out.println("El promedio de pasos es: " + promedio);
     }
