@@ -20,9 +20,4 @@ public class Utils {
             System.out.println();
         }
     }
-
-    public static void enterToContinue(){
-        System.out.println("Presione ENTER para continuar...");
-
-    }
 }
